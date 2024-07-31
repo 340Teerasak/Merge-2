@@ -29,7 +29,7 @@
       <q-input
         filled
         v-model="surname"
-        label="Your surname"
+        label="Your surname *"
         hint="Surname"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type your Surname']"
@@ -98,7 +98,9 @@ export default {
       },
 
       onReset () {
+        id.value =null
         name.value = null
+        surname.value = null
         age.value = null
         accept.value = false
       }
