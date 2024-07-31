@@ -6,6 +6,14 @@
       @reset="onReset"
       class="q-gutter-md"
     >
+    <q-input
+        filled
+        v-model="language"
+        label="ภาษา *"
+        hint="ภาษา"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'เปลี่ยนภาษา']"
+      />
     <!-- ID -->
     <q-input
         filled
@@ -65,6 +73,7 @@ import { ref } from 'vue'
 export default {
   setup () {
     const $q = useQuasar()
+    const language = ("ภาษาไทย")
     const id =ref("6604101340")
     const name = ref("ธีรศักดิ์")
     const surname=ref("แก้วภา")
@@ -72,6 +81,7 @@ export default {
     const accept = ref(false)
 
     return {
+      language,
       id,
       name,
       surname,
@@ -102,6 +112,7 @@ export default {
         name.value = null
         surname.value = null
         age.value = null
+        language.value = null
         accept.value = false
       }
     }
